@@ -9,7 +9,7 @@ public class TestSpringRemotingHttpInvoker {
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-config-client.xml");
-        GreetingService greetingService = (GreetingService)context.getBean("greetingService");
+        GreetingService greetingService = context.getBean(GreetingService.class);
         String greetingMessage = greetingService.getGreeting("Alpha");
         System.out.println("The greeting message is : " + greetingMessage);
     }
