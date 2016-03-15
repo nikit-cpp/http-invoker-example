@@ -7,4 +7,9 @@ public class GreetingServiceImpl implements GreetingService{
         return "Hello " + name + "!";
     }
 
+    @Override
+    public String hi(String name) {
+        return "Hi, " + name + "!";
+    }
+
 }

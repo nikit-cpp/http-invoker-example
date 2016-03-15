@@ -24,7 +24,7 @@ public class ServletConfig extends SpringBootServletInitializer {
 
     @Bean
     public ServletRegistrationBean httpInvokerServlet(HttpRequestHandlerServlet servlet) {
-        ServletRegistrationBean registration = new ServletRegistrationBean(servlet, "*.http");
+        ServletRegistrationBean registration = new ServletRegistrationBean(servlet, "/springremotinghttpinvokerserver/greetingService.http");
         registration.setName(Constants.EXPORTER_BEAN_NAME);
         registration.setLoadOnStartup(1);
 
