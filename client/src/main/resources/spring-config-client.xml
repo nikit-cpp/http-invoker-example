@@ -10,4 +10,9 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
         <property name="serviceInterface" value="com.studytrails.tutorials.springremotinghttpinvokerserver.GreetingService"/>
     </bean>
 
+    <bean id="goodbyeService" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+        <property name="serviceUrl" value="http://localhost:8078/springremotinghttpinvokerserver/goodbyeService.http"/>
+        <property name="serviceInterface" value="com.studytrails.tutorials.springremotinghttpinvokerserver.GoodbyeService"/>
+    </bean>
+
 </beans>

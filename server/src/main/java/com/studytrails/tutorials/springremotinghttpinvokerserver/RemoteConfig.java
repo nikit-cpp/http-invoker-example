@@ -14,11 +14,24 @@ public class RemoteConfig {
         return new GreetingServiceImpl();
     }
 
-    @Bean(name = Constants.EXPORTER_BEAN_NAME)
+    @Bean
+    GoodbyeService goodbyeService() {
+        return new GoodbyeServiceImpl();
+    }
+
+    @Bean(name = Constants.GREETING_EXPORTER_BEAN_NAME)
     HttpInvokerServiceExporter greetingExporter() {
         HttpInvokerServiceExporter httpInvokerServiceExporter = new HttpInvokerServiceExporter();
         httpInvokerServiceExporter.setService(greetingService());
         httpInvokerServiceExporter.setServiceInterface(GreetingService.class);
+        return httpInvokerServiceExporter;
+    }
+
+    @Bean(name = Constants.GOODBYE_EXPORTER_BEAN_NAME)
+    HttpInvokerServiceExporter goodbyeExporter() {
+        HttpInvokerServiceExporter httpInvokerServiceExporter = new HttpInvokerServiceExporter();
+        httpInvokerServiceExporter.setService(goodbyeService());
+        httpInvokerServiceExporter.setServiceInterface(GoodbyeService.class);
         return httpInvokerServiceExporter;
     }
 }

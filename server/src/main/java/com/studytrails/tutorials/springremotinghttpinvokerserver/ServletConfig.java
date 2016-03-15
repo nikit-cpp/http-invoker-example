@@ -17,15 +17,25 @@ public class ServletConfig extends SpringBootServletInitializer {
         return new DispatcherServlet();
     }
 
-    @Bean
+    // httpinvoker servlet
+    /*@Bean
     HttpRequestHandlerServlet httpRequestHandlerServlet() {
         return new HttpRequestHandlerServlet();
+    }*/
+
+    @Bean
+    public ServletRegistrationBean greetingRegistration() {
+        ServletRegistrationBean registration = new ServletRegistrationBean(new HttpRequestHandlerServlet(), "/springremotinghttpinvokerserver/greetingService.http");
+        registration.setName(Constants.GREETING_EXPORTER_BEAN_NAME);
+        registration.setLoadOnStartup(1);
+
+        return registration;
     }
 
     @Bean
-    public ServletRegistrationBean httpInvokerServlet(HttpRequestHandlerServlet servlet) {
-        ServletRegistrationBean registration = new ServletRegistrationBean(servlet, "/springremotinghttpinvokerserver/greetingService.http");
-        registration.setName(Constants.EXPORTER_BEAN_NAME);
+    public ServletRegistrationBean goodbyeRegistration() {
+        ServletRegistrationBean registration = new ServletRegistrationBean(new HttpRequestHandlerServlet(), "/springremotinghttpinvokerserver/goodbyeService.http");
+        registration.setName(Constants.GOODBYE_EXPORTER_BEAN_NAME);
         registration.setLoadOnStartup(1);
 
         return registration;

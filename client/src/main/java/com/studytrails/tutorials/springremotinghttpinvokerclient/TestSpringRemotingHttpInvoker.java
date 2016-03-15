@@ -1,5 +1,6 @@
 package com.studytrails.tutorials.springremotinghttpinvokerclient;
 
+import com.studytrails.tutorials.springremotinghttpinvokerserver.GoodbyeService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -16,5 +17,9 @@ public class TestSpringRemotingHttpInvoker {
 
         String hiMessage = greetingService.hi("Alpha");
         System.out.println("The hi message is : " + hiMessage);
+
+        GoodbyeService goodbyeService = context.getBean(GoodbyeService.class);
+        String goodbye = goodbyeService.getGoodBye("Ololosh");
+        System.out.println("Message from goodbye: " + goodbye);
     }
 }
