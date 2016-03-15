@@ -14,7 +14,7 @@ public class RemoteConfig {
         return new GreetingServiceImpl();
     }
 
-    @Bean(name = "/greetingService.http")
+    @Bean(name = Constants.EXPORTER_BEAN_NAME)
     HttpInvokerServiceExporter greetingExporter() {
         HttpInvokerServiceExporter httpInvokerServiceExporter = new HttpInvokerServiceExporter();
         httpInvokerServiceExporter.setService(greetingService());
