@@ -18,8 +18,5 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
     compile project(":api")
-    compile ('org.springframework:spring-remoting:2.0.8')/*{
-        exclude module: "spring-web"
-        exclude module: "servlet-api"
-    }*/
+    compile ('org.springframework:spring-remoting:2.0.8')
 }
