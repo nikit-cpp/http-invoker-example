@@ -15,6 +15,7 @@ buildscript {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    //compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    compile 'org.springframework:spring-web:4.2.4.RELEASE'
     compile project(":api")
 }
